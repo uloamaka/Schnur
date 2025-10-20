@@ -1,0 +1,2 @@
+# Schnur
+A string analyzer.
