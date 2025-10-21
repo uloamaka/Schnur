@@ -39,30 +39,6 @@ func main() {
 
 	http.HandleFunc("/strings/filter-by-natural-language", schnur.SearchString)
 
-	// http.HandleFunc("/strings", schnur.FilterString) // GET with query params
-	// http.HandleFunc("/strings", schnur.AnalyzeString) // POST
-	// http.HandleFunc("/strings/", schnur.GetString) // GET /strings/{value}
-	// http.HandleFunc("/strings/filter-by-natural-language", schnur.SearchString) // GET with natural language query
-	// http.HandleFunc("/strings/", schnur.DeleteString) // DELETE /strings/{value}
-	// r := chi.NewRouter()
-
-	// r.Route("/strings", func(r chi.Router) {
-    //     // GET /strings
-    //     r.Get("/", schnur.FilterString)
-
-    //     // POST /strings
-    //     r.Post("/", schnur.AnalyzeString)
-
-    //     // GET /strings/filter-by-natural-language
-    //     r.Get("/filter-by-natural-language", schnur.SearchString)
-
-    //     // GET /strings/{value}
-    //     r.Get("/{value}", schnur.GetString)
-
-    //     // DELETE /strings/{value}
-    //     r.Delete("/{value}", schnur.DeleteString)
-    // })
-
 	port := os.Getenv("PORT")
 	fmt.Println("Port from env:", port)
 
