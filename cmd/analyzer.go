@@ -8,7 +8,6 @@ import (
 )
 
 // a function that returns the length of the input string
-
 func stringLength(s string) int {
 	return len(s)
 }
@@ -46,10 +45,18 @@ func wordCount(s string) int {
 }
 
 // a function that returns a freq count of the char in the input string
-func charFrequency(s string) map[rune]int {
-	freqMap := make(map[rune]int)
-	for _, char := range s {
-		freqMap[char]++
+func charFrequency(s string) map[string]int {
+	freqMap := make(map[string]int)
+
+	trimedS := trimSpace(s)
+	if len(trimedS) == 0 {
+		return freqMap
+	}
+
+	lwcs := strings.ToLower(trimedS)
+
+	for _, char := range lwcs {
+		freqMap[string(char)]++
 	}
 	return freqMap
 }

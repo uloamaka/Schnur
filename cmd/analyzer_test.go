@@ -82,11 +82,12 @@ func TestCharFrequency(t *testing.T) {
 	tests := []struct {
 		name     string
 		input    string
-		expected map[rune]int
+		expected map[string]int
 	}{
-		{"normal string", "hello", map[rune]int{'h': 1, 'e': 1, 'l': 2, 'o': 1}},
-		{"empty string", "", map[rune]int{}},
-		{"repeated letters", "aabbcc", map[rune]int{'a': 2, 'b': 2, 'c': 2}},
+		{"normal string", "hello", map[string]int{"h": 1, "e": 1, "l": 2, "o": 1}},
+		{"empty string", "", map[string]int{}},
+		{"repeated letters", "aabbcc", map[string]int{"a": 2, "b": 2, "c": 2}},
+		{"whitespaces included letters", "ada is a boy", map[string]int{"a": 3, "b": 1, "d": 1, "i": 1, "s": 1, "o": 1, "y": 1}},
 	}
 
 	for _, tc := range tests {
@@ -96,7 +97,7 @@ func TestCharFrequency(t *testing.T) {
 			t.Errorf("%s: expected length %d, got %d", tc.name, len(tc.expected), len(got))
 			continue
 		}
-		
+
 		for k, v := range tc.expected {
 			if got[k] != v {
 				t.Errorf("%s: for key %q expected %d, got %d", tc.name, k, v, got[k])
